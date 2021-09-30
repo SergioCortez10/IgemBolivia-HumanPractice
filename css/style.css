@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+:root {
+  --azul: #00507d;
+  --celeste: #00c7dc;
+  --morado: #7b0068;
+  --verde: #6dc72a;
+}
+body {
+  font-family: "Righteous", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  background-image: linear-gradient(179deg, white, #00507d5e);
+  /* overflow: hidden; */
+}
+
+.bg-inv {
+  background-image: linear-gradient(3deg, white, #00507d5e);
+  overflow: hidden;
+}
+
+.container-entre {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.entre {
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+}
+.entre img {
+  width: 40%;
+  transition: all 400ms;
+}
+
+.container-par {
+  position: relative;
+  font-size: 12px;
+  transform: translateY(150px);
+  transition: all 600ms;
+}
+
+.container-par .img-ros {
+  width: 100%;
+}
+
+.entre:hover {
+  background: #00c7dc;
+  height: 400px;
+}
+
+.entre:hover img {
+  width: 30%;
+  transform: translateY(-100px);
+}
+.entre:hover .container-par {
+  color: black;
+  transform: translateY(-150px);
+  opacity: 1;
+}

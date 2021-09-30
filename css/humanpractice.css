@@ -7,7 +7,13 @@
   --morado: #7b0068;
   --verde: #6dc72a;
 }
-
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   font-family: "Righteous", cursive;
   margin: 0;
@@ -209,78 +215,273 @@ figure {
   opacity: 1;
   width: 100%;
 }
-/* Entrevistas */
-.container-box {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
+/* Linea del tiempo */
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.box {
-  width: 450px;
-  height: 370px;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid white;
-  background: #00507d;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 100px;
+#cd-timeline {
   position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: "";
+  position: absolute;
+  top: 30px;
+  bottom: 50px;
+  left: 27px;
+  height: 90%;
+  width: 2px;
+  background: #7b0068;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline {
+    margin-top: 3em;
+  }
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
 }
 
-.box .img-en {
-  width: 60%;
-  transition: all 400ms;
-}
-
-.box .text-en {
-  color: white;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  transition: all 500ms;
-}
-
-.box .container-p {
-  width: 100%;
-  height: 300px;
+.cd-timeline-block {
   position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-block {
+    margin: 4em 0;
+  }
+  .cd-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #7b0068, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.cd-timeline-img img {
+  display: block;
+  width: 215%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -65px;
+  margin-top: -37px;
+}
+.cd-timeline-img.cd-picture {
+  background: #75ce66;
+}
+.cd-timeline-img.cd-movie {
+  background: #c03b44;
+}
+.cd-timeline-img.cd-location {
+  background: #f0ca45;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-img {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-1 0.6s;
+    -moz-animation: cd-bounce-1 0.6s;
+    animation: cd-bounce-1 0.6s;
+  }
 }
 
-.box p {
-  text-align: start;
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: #ffffff;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
+}
+.cd-timeline-content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-content h2 {
+  text-align: center;
+  color: #7b0068;
+  font-size: 15px;
+}
+.cd-timeline-content p {
   font-size: 12px;
-  opacity: 0;
-  transform: translateY(150px);
-  transition: all 600ms;
+}
+.cd-timeline-content .img-timeline {
+  width: 100%;
+  text-align: center;
 }
 
-/*Efecto Hover*/
-
-.container-box .box:hover {
-  background: #fbfbfe;
-  height: 530px;
-  width: 600px;
+.cd-timeline-content .img-timeline .img-timeline-2 {
+  display: flex;
+  width: 100%;
+  margin-left: 10%;
 }
-
-.box:hover .img-en {
+.cd-timeline-content .img-timeline .img-timeline-2 img {
   width: 40%;
-  transform: translateY(-100px);
+}
+.cd-timeline-content .img-timeline img {
+  width: 50%;
 }
 
-.box:hover .text-en {
-  color: #00507d;
-  transform: translateY(-100px);
+.cd-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
 }
 
-.box:hover .container-p p {
-  color: black;
-  transform: translateY(-80px);
+.cd-timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid #ffffff;
+}
+@media only screen and (min-width: 768px) {
+  .cd-timeline-content h2 {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .cd-timeline-content p {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-content {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+  }
+  .cd-timeline-content::before {
+    top: 30px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: #ffffff;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: #ffffff;
+  }
+
+  .cssanimations .cd-timeline-content.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-content.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-2 0.6s;
+    -moz-animation: cd-bounce-2 0.6s;
+    animation: cd-bounce-2 0.6s;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations
+    .cd-timeline-block:nth-child(even)
+    .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
+    -moz-animation: cd-bounce-2-inverse 0.6s;
+    animation: cd-bounce-2-inverse 0.6s;
+  }
+}
+
+/* Collage de fotos reuniones */
+.container-collaje {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+.container-collaje .coll-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+}
+.container-collaje .coll-img img {
+  width: 100%;
+  border: solid 1px #7b0068;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+.container-collaje .coll-img img:hover {
+  width: 120%;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px 2px #bfbfbfa3;
   opacity: 1;
+  transform: scale(1.02);
+}
+@media (max-width: 767px) {
+  .container-collaje {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
