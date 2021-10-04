@@ -458,44 +458,77 @@ Modules - reusable parts of our design
 }
 
 /* Collage de fotos reuniones */
+
 .container-collaje {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 10px;
-  padding: 20px;
+  position: relative;
+  width: 65%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 40px 5px rgba(255, 255, 255, 0.06);
+  border: 5px;
 }
+
 .container-collaje .coll-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 4px;
-}
-.container-collaje .coll-img img {
+  position: absolute;
   width: 100%;
-  border: solid 1px #7b0068;
-  border-radius: 8px;
-  transition: 0.3s ease-in-out;
+  height: 100%;
+  margin: 10px 20px;
+  transition: transform 0.3s ease-out;
+}
+.coll-img:hover {
+  transform: scale(1);
+  z-index: 1;
 }
 
-.wide {
-  grid-column: span 2;
+.coll-img img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
 }
-
-.container-collaje .coll-img img:hover {
-  width: 120%;
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px 2px #bfbfbfa3;
-  opacity: 1;
-  transform: scale(1.02);
+.i_1 {
+  transform: translate(21%, -23%) scale(0.4);
 }
-@media (max-width: 767px) {
+.i_2 {
+  transform: translate(-26%, -22%) scale(0.4);
+}
+.i_3 {
+  transform: translate(-26%, 22%) scale(0.4);
+}
+.i_4 {
+  transform: translate(21%, 23%) scale(0.4);
+}
+.i_5 {
+  transform: translate(-1%, -13%) scale(0.4);
+}
+@media (max-width: 921px) {
   .container-collaje {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    position: relative;
+    width: 80%;
+    height: 380px;
   }
 }
-
+@media (max-width: 768px) {
+  .container-collaje {
+    position: relative;
+    width: 90%;
+    height: 380px;
+  }
+}
+@media (max-width: 540px) {
+  .container-collaje {
+    position: relative;
+    width: 90%;
+    height: 320px;
+  }
+}
+@media (max-width: 400px) {
+  .container-collaje {
+    position: relative;
+    width: 90%;
+    height: 280px;
+  }
+}
 @media (max-width: 767px) {
   .text-banner {
     width: 100vw;
