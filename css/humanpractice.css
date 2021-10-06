@@ -593,3 +593,18 @@ Modules - reusable parts of our design
     height: 150px;
   }
 }
+
+.menulateral {
+  margin-left: 10px;
+  position: sticky;
+  top: 120px;
+}
+
+.menulateral ul li a {
+  text-decoration: none;
+  color: var(--verde);
+}
+
+.menulateral ul li a:hover {
+  color: rgb(34, 161, 72);
+}
