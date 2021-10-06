@@ -127,7 +127,7 @@ figure {
 .fondo-banner {
   width: 100vw;
   height: 100%;
-  background-image: linear-gradient(to right, var(--morado), var(--verde));
+  background-image: linear-gradient(to right, var(--azul), var(--verde));
   opacity: 0.4;
   position: absolute;
   padding-bottom: 100px;
@@ -181,7 +181,7 @@ figure {
 }
 
 .my-nav {
-  background-image: linear-gradient(to right, #7b0068, #32cd32);
+  background-image: linear-gradient(to right, #00507d, #32cd32);
   opacity: 0.9;
   transition: 0.3s ease-in-out;
 }
@@ -466,14 +466,12 @@ Modules - reusable parts of our design
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 40px 5px rgba(255, 255, 255, 0.06);
-  border: 5px;
 }
 
 .container-collaje .coll-img {
   position: absolute;
   width: 100%;
   height: 100%;
-  margin: 10px 20px;
   transition: transform 0.3s ease-out;
 }
 .coll-img:hover {
