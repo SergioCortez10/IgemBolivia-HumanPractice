@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+:root {
+  --azul: #00507d;
+  --celeste: #00c7dc;
+  --morado: #7b0068;
+  --verde: #6dc72a;
+}
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Righteous", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo-principal {
+  margin-top: 2vh;
+  font-size: 80px;
+  font-weight: 600;
+}
+
+article,
+section {
+  margin-top: 60px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.text-morado {
+  color: var(--morado);
+}
+
+.text-azul {
+  color: var(--azul);
+}
+
+.text-verde {
+  color: var(--verde);
+}
+
+.pic-wrapper {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /*animation*/
+  animation: slideShow 24s linear infinite 0s;
+}
+
+.pic-1 {
+  opacity: 1;
+  background: url("img/baner/Banner\ 1.png") no-repeat center center;
+  background-size: cover;
+}
+
+.pic-2 {
+  animation-delay: 4s;
+  background: url("img/baner/Banner\ 2.png") no-repeat center center;
+  background-size: cover;
+}
+
+.pic-3 {
+  animation-delay: 8s;
+  background: url("img/baner/Banner\ 3.png") no-repeat center center;
+  background-size: cover;
+}
+.pic-4 {
+  animation-delay: 12s;
+  background: url("img/baner/Banner\ 4.png") no-repeat center center;
+  background-size: cover;
+}
+.pic-5 {
+  animation-delay: 16s;
+  background: url("img/baner/Banner\ 5.png") no-repeat center center;
+  background-size: cover;
+}
+.pic-6 {
+  animation-delay: 20s;
+  background: url("img/baner/Banner\ 6.png") no-repeat center center;
+  background-size: cover;
+}
+
+/* keyframes*/
+
+@keyframes slideShow {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+    -ms-transform: scale(1);
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    -ms-transformm: scale(1);
+  }
+}
+
+.fondo-banner {
+  width: 100vw;
+  height: 100%;
+  background-image: linear-gradient(to right, var(--azul), var(--verde));
+  opacity: 0.4;
+  position: absolute;
+  padding-bottom: 100px;
+}
+
+.text-banner {
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 10vh;
+  position: relative;
+}
+
+.fila-banner {
+  padding-left: 10vw;
+  z-index: 10;
+}
+
+.logo-arsenito {
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.title-small {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.team {
+  display: flex;
+  align-items: end;
+  justify-content: start;
+}
+
+.nav-item {
+  margin-left: 80px;
+  font-size: 18px;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: var(--verde) !important;
+  text-decoration: var(--verde) !important;
+}
+
+#nav {
+  background-color: transparent !important;
+}
+
+.my-nav {
+  background-image: linear-gradient(to right, #00507d, #32cd32);
+  opacity: 0.9;
+  transition: 0.3s ease-in-out;
+}
+
+.bg {
+  background-image: linear-gradient(179deg, white, #81a10b5e);
+  /* overflow: hidden; */
+}
+
+.bg-inv {
+  background-image: linear-gradient(3deg, white, #81a10b5e);
+  overflow: hidden;
+}
+.bg-inv-c {
+  background-image: linear-gradient(3deg, #81a10b5e, #81a10b5e);
+  overflow: hidden;
+}
+
+/* prueba nav */
+.hover-nav {
+  position: relative;
+}
+.nav-item:after {
+  position: absolute;
+  opacity: 0;
+  width: 0%;
+  height: 2px;
+  content: "";
+  background: #fff;
+  transition: all 0.3s;
+  left: 0px;
+  bottom: 0px;
+}
+
+.nav-item:hover:after {
+  opacity: 1;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .text-banner {
+    width: 100vw;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-left: 0;
+    padding-bottom: 0;
+  }
+  .titulo-principal {
+    margin-top: 2vh;
+    font-size: 50px;
+    font-weight: 400;
+    color: white;
+  }
+  .team {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+  .text-video {
+    background-color: var(--azul);
+    width: 100%;
+    min-height: 34vh;
+    padding: 56px;
+  }
+  .nav-item {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+  /* .fila-banner {
+          padding-left: 10vw;
+          z-index: 10;
+          padding-left: 0;
+      } */
+}
+.hero {
+  width: 100%;
+  height: 550px;
+  position: relative;
+}
+
+.menulateral {
+  margin-left: 10px;
+  position: sticky;
+  top: 120px;
+}
+
+.menulateral ul li a {
+  text-decoration: none;
+  color: var(--verde);
+}
+
+.menulateral ul li a:hover {
+  color: rgb(34, 161, 72);
+}
