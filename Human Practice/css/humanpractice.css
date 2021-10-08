@@ -4,8 +4,9 @@
 :root {
   --azul: #00507d;
   --celeste: #00c7dc;
-  --morado: #7b0068;
+  --morado: #00507d;
   --verde: #6dc72a;
+  --blanco: #fff;
 }
 *,
 *:after,
@@ -37,6 +38,9 @@ p {
 
 .text-morado {
   color: var(--morado);
+}
+.text-blanco {
+  color: var(--blanco);
 }
 
 .text-azul {
@@ -368,10 +372,21 @@ Modules - reusable parts of our design
 .cd-timeline-content {
   position: relative;
   margin-left: 60px;
-  background: #ffffff;
   border-radius: 0.25em;
   padding: 1em;
-  box-shadow: 0 3px 0 #d7e4ed;
+}
+.fondo-blanco {
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.fondo-verde {
+  background: #6dc72a;
+}
+
+.fondo-morado {
+  background: #00507d;
 }
 .cd-timeline-content::after {
   clear: both;
@@ -415,6 +430,13 @@ Modules - reusable parts of our design
   border-right: 7px solid #ffffff;
 }
 @media only screen and (min-width: 768px) {
+  .fondo-verde {
+    background: #6dc72a;
+  }
+
+  .fondo-morado {
+    background: #00507d;
+  }
   .cd-timeline-content h2 {
     font-size: 20px;
     font-size: 1.25rem;
@@ -439,7 +461,7 @@ Modules - reusable parts of our design
     top: 30px;
     left: 100%;
     border-color: transparent;
-    border-left-color: #ffffff;
+    border-left-color: #6dc72a;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content {
     float: right;
@@ -449,7 +471,13 @@ Modules - reusable parts of our design
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: #ffffff;
+    border-right-color: #00507d;
+  }
+
+  .fondo-blanco {
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
   }
 
   .cssanimations .cd-timeline-content.is-hidden {
@@ -716,7 +744,16 @@ Modules - reusable parts of our design
 .menulateral {
   margin-left: 10px;
   position: sticky;
-  top: 120px;
+  top: 150px;
+  border-right: 5px solid;
+  border-color: #6dc72a;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid #000; */
+  width: 250px;
 }
 
 .menulateral ul li a {
